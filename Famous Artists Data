@@ -34,8 +34,14 @@ INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
 INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
 (7,'Middle Child',4,0);
 
+
+--Display everything in the database.
+
 SELECT *
 FROM famousartists;
+
+
+--What are the average and most amount of albums made in the database?
 
 SELECT AVG(albums) as Avg_Albums_Made
 FROM famousartists;
@@ -43,10 +49,16 @@ FROM famousartists;
 SELECT name, max(albums) as Most_Albums
 FROM famousartists;
 
+
+--Who has the most Number 1 hits in the database?
+
 SELECT fa.name, max(number1_hits) as Most_Hits
 FROM songs as s
 JOIN famousartists as fa
 ON fa.id = s.person_id;
+
+
+Who has the lowest Peak chart position in the database?
 
 SELECT fa.name, max(peak_position) as Lowest_Peak_Position
 FROM famousartists as fa
