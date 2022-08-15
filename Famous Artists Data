@@ -1,0 +1,56 @@
+Create table famousartists ( id integer primary key,
+Name text,
+genre text,
+albums integer,
+hometown text);
+
+INSERT INTO famousartists VALUES (1, 'Drake', 'Hip Hop',7,'Toronto');
+INSERT INTO famousartists VALUES (2, 'Lauryn hill', 'Neo Soul',1,'Newark');
+INSERT INTO famousartists VALUES (3, 'Michael Jackson','Pop',10,'Gary ' );
+INSERT INTO famousartists VALUES (4, 'Whitney Houston', 'Pop',7,'Newark' );
+INSERT INTO famousartists VALUES (5, 'Kanye West', 'Hip Hop',11, 'Chicago' );
+INSERT INTO famousartists VALUES (6, 'Lil Wayne', 'Hip Hop',6,'New Orleans');
+INSERT INTO famousartists VALUES (7, 'J cole', 'Hip Hop',6,'North Carolina');
+
+
+Create table songs ( id integer primary key,
+person_id integer,
+best_song text,
+peak_position integer,
+number1_hits integer);
+
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(1,'Gods Plan',1,11);
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(2,'Doo Wop',1,1);
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(3,'Billie Jean',1,13);
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(4,'I Will Always Love You',1,11);
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(5,'Gold Digger',1,4);
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(6,'Lollipop',1,3);
+INSERT INTO songs (person_id,best_song,peak_position,number1_hits) VALUES
+(7,'Middle Child',4,0);
+
+SELECT *
+FROM famousartists;
+
+SELECT AVG(albums) as Avg_Albums_Made
+FROM famousartists;
+
+SELECT name, max(albums) as Most_Albums
+FROM famousartists;
+
+SELECT fa.name, max(number1_hits) as Most_Hits
+FROM songs as s
+JOIN famousartists as fa
+ON fa.id = s.person_id;
+
+SELECT fa.name, max(peak_position) as Lowest_Peak_Position
+FROM famousartists as fa
+JOIN songs as s
+ON fa.id = s.person_id;
+
+
